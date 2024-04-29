@@ -2,6 +2,7 @@ import React from "react";
 import { gql } from "@apollo/client";
 
 export interface MovieTitleFragment {
+  __typename: "Film";
   id: string;
   episodeID: number | null;
   title: string | null;
@@ -28,4 +29,4 @@ export const MovieTitle = ({ film }: MovieTitleProps) => {
 };
 
 MovieTitle.fragment = movieTitleFragment;
-MovieTitle.fragmentName = "MovieTitleFragment";
+MovieTitle.fragmentName = "MovieTitleFragment" as const;

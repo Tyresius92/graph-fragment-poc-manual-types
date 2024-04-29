@@ -4,7 +4,9 @@ import { gql } from "@apollo/client";
 
 export interface StarshipListFragment {
   starshipConnection: {
+    __typename: "FilmStarshipsConnection";
     starships: ({
+      __typename: "Starship";
       id: string;
     } & StarshipCardFragmentType)[];
   };
@@ -49,4 +51,4 @@ export const StarshipList = ({ film }: StarshipListProps) => {
 };
 
 StarshipList.fragment = starshipListFragment;
-StarshipList.fragmentName = "StarshipListFragment";
+StarshipList.fragmentName = "StarshipListFragment" as const;

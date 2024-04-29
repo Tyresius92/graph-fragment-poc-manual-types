@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import { CharacterCard, CharacterCardFragment } from "./CharacterCard";
 
 export interface StarshipCardFragmentType {
+  __typename: "Starship";
   id: string;
   name: string | null;
   model: string | null;
@@ -10,7 +11,9 @@ export interface StarshipCardFragmentType {
   costInCredits: number | null;
   crew: string | null;
   pilotConnection: {
+    __typename: "StarshipPilotsConnection";
     pilots: ({
+      __typename: "Person";
       id: string;
     } & CharacterCardFragment)[];
   };
@@ -85,4 +88,4 @@ export const StarshipCard = ({ starship }: StarshipCardProps) => {
 };
 
 StarshipCard.fragment = starshipCardFragment;
-StarshipCard.fragmentName = "StarshipCardFragment";
+StarshipCard.fragmentName = "StarshipCardFragment" as const;

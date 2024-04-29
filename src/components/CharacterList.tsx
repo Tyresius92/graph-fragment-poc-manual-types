@@ -4,7 +4,9 @@ import { CharacterCard, CharacterCardFragment } from "./CharacterCard";
 
 export interface CharacterListFragment {
   characterConnection: {
+    __typename: "FilmCharactersConnection";
     characters: ({
+      __typename: "Person";
       id: string;
     } & CharacterCardFragment)[];
   };
@@ -49,4 +51,4 @@ export const CharacterList = ({ film }: CharacterListProps) => {
 };
 
 CharacterList.fragment = characterListFragment;
-CharacterList.fragmentName = "CharacterListFragment";
+CharacterList.fragmentName = "CharacterListFragment" as const;

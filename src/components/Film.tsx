@@ -9,6 +9,7 @@ import { CharacterList, CharacterListFragment } from "./CharacterList";
 export interface FilmQuery {
   film:
     | ({
+        __typename: "Film";
         id: string;
       } & MovieTitleFragment &
         OpeningCrawlFragment &

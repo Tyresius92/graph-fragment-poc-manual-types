@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 import "./crawl.css";
 
 export interface OpeningCrawlFragment {
+  __typename: "Film";
   id: string;
   openingCrawl: string | null;
   episodeID: number | null;
@@ -40,4 +41,4 @@ export const OpeningCrawl = ({ film }: OpeningCrawlProps) => (
 );
 
 OpeningCrawl.fragment = openingCrawlFragment;
-OpeningCrawl.fragmentName = "OpeningCrawlFragment";
+OpeningCrawl.fragmentName = "OpeningCrawlFragment" as const;

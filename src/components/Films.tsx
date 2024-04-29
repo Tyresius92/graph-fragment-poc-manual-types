@@ -5,7 +5,9 @@ import { useQuery, gql } from "@apollo/client";
 
 export interface GetFilms {
   allFilms: {
+    __typename: "FilmsConnection";
     films: ({
+      __typename: "Film";
       id: string;
       episodeID: number | null;
       releaseDate: string | null;

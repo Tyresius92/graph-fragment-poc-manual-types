@@ -2,10 +2,12 @@ import React from "react";
 import { gql, useQuery } from "@apollo/client";
 
 export interface CharacterCardFragment {
+  __typename: "Person";
   id: string;
   name: string | null;
   gender: string | null;
   species: {
+    __typename: "Species";
     id: string;
     name: string | null;
   } | null;
@@ -38,7 +40,7 @@ const characterCardQuery = gql`
 `;
 
 interface CharacterCardQuery {
-  person: CharacterCardFragment
+  person: CharacterCardFragment;
 }
 
 export const CharacterCard = ({ person }: CharacterCardProps) => {
@@ -77,4 +79,4 @@ export const CharacterCard = ({ person }: CharacterCardProps) => {
 };
 
 CharacterCard.fragment = characterCardFragment;
-CharacterCard.fragmentName = "CharacterCardFragment";
+CharacterCard.fragmentName = "CharacterCardFragment" as const;
